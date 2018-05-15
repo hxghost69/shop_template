@@ -1,21 +1,19 @@
-# shop_template
+使用的库
+vue-cli (vue+webpack脚手架)
+vue-router(路由跳转)
+vuex(状态管理)
+axios(数据请求)
+express
+mongoDB,后面会改成mock.js(模拟后台数据)
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+--------------------------------------------------
+设计布局:
+HTML5
+CSS3
+sass
+Flex(弹性布局)
+mint-ui
+因为用mint-ui。所以都是用px的。
+数据请求：
+Mock(模拟后台数据)
+Axios(请求数据)
