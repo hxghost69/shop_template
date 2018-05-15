@@ -1,5 +1,11 @@
 <template>
   <section class="section1" v-if='section1'>
+    <div class="title1">
+        <router-link :to="{'name':'详情页'}">
+            热门商品
+            <i>&gt;</i>
+        </router-link>
+    </div>      
     <div class="section1-list">
       <ul>
         <li v-for="k in section1" :key="k.id">
@@ -31,6 +37,24 @@
 <style lang="scss" scoped>
 .section1{
     background-color:#fff;
+}
+.title1{
+    border-bottom:1px solid #ccc;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+    background-color: #ffffff;
+    position:relative;
+    a{
+        display:inline-block;
+        width:100%;
+        padding: 8px 0;
+    }
+    i{
+        position:absolute;
+        right:15px;
+        top:26%;
+    }
 }
   .section1-list {
     overflow-x: auto;

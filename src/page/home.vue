@@ -3,19 +3,7 @@
         <m-header :title="titleMsg"></m-header>
         <m-search></m-search>
         <m-banner :bannerData="datas.list"></m-banner>
-        <div class="title1">
-            <router-link :to="{'name':'详情页'}">
-                热门商品
-                <i>&gt;</i>
-            </router-link>
-        </div>
         <m-section1 :section1="datas.hotsection"></m-section1>
-        <div class="title1">
-            <router-link :to="{'name':'详情页'}">
-                商品1
-                <i>&gt;</i>
-            </router-link>
-        </div>
         <m-section2 :section2="datas.hotsection2"></m-section2>    
         <m-footer></m-footer>
   </div>
@@ -23,22 +11,6 @@
 <style lang="scss" scoped>
     .home{
         padding-bottom:55px;
-        .title1{
-            border-bottom:1px solid #ccc;
-            text-align: center;
-            font-size: 20px;
-            padding: 8px 0;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            position: relative;
-            background-color: #ffffff;
-            position:relative;
-            i{
-                position:absolute;
-                right:15px;
-                top:26%;
-            }
-        }
     }
 </style>
 
