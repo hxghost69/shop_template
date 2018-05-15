@@ -9,6 +9,12 @@
     .mint-search{
         height:auto;
     }
+    .mint-searchbar{        
+        background-color: #26a2ff;
+    }
+    .mint-searchbar-inner{
+        border-radius:20px;
+    }
 </style>
 
 <script>

@@ -1,31 +1,42 @@
 <template>
-    <mt-swipe :auto="3000">
-        <mt-swipe-item class="slide1">
+    <!-- <mt-swipe :auto="3000">
+        <mt-swipe-item >
+            <a href="">
+                <img src="https://dummyimage.com/800x400/ffbe19/fafafa" alt="">
+            </a>          
         </mt-swipe-item>
         <mt-swipe-item class="slide2">
+            <a href="">
+                <img src="https://dummyimage.com/800x400/ffae63/fafafa" alt="">
+            </a>
         </mt-swipe-item>
         <mt-swipe-item class="slide3">
+            <img src="https://dummyimage.com/800x400/84cc06/fafafa" alt="">
+        </mt-swipe-item>
+    </mt-swipe> -->
+    <mt-swipe :auto="0" v-if='bannerData'>
+        <mt-swipe-item v-for="k in bannerData" :key="k.id">
+            <router-link :to="{ name: '首页'}">
+            <img :src="k.imgPath">
+            </router-link>
         </mt-swipe-item>
     </mt-swipe>
 </template>
+<script>
+    export default {
+        props:['bannerData']
+    }
+</script>
 <style lang="scss" scoped>
 .mint-swipe {
-    height: 200px;
-    color: #fff;
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 20px;
+    height: 50vw;
+    width:100%;
 }
-    .mint-swipe-item{
-        &.slide1{
-            background-color:green ;
-        }
-        &.slide2{
-            background-color:#ffd705;
-        }
-        &.slide3{
-            background-color: #ff2d4b;
-        }
-    }
+a{display:inline-block;width:100%;height:auto;}
+img{
+    width:100%;
+    height:auto;
+}
+
 </style>
 

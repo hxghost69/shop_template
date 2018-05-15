@@ -10,8 +10,3 @@ export default {
 }
 </script>
 
-<style>
-#app {
-
-}
-</style>
