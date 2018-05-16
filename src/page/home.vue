@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-        <m-header :title="titleMsg"></m-header>
+        <m-header :htitle="titleMsg"></m-header>
         <m-search></m-search>
-        <m-banner :bannerData="datas.list"></m-banner>
+        <m-banner :bannerData="datas.bannerlist"></m-banner>
         <m-section1 :section1="datas.hotsection"></m-section1>
         <m-section2 :section2="datas.hotsection2"></m-section2>    
         <m-footer></m-footer>
@@ -11,6 +11,7 @@
 <style lang="scss" scoped>
     .home{
         padding-bottom:55px;
+        padding-top:40px;
     }
 </style>
 
@@ -36,7 +37,7 @@ export default {
             titleMsg:'商城主页',
             datas:{
                 count:3,
-                list:[
+                bannerlist:[
                     {
                         id:1,
                         imgPath:'https://dummyimage.com/800x400/ffbe19/fafafa'
@@ -107,7 +108,7 @@ export default {
     },
     methods:{
         init:function(){
-            console.log("init");
+            
         }
     }
 }

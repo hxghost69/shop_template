@@ -13,10 +13,13 @@ const Cart = resolve => require(['@/page/cart.vue'], resolve)
 const Category = resolve => require(['@/page/category.vue'], resolve)
 const User = resolve => require(['@/page/user.vue'], resolve)
 const Detail = resolve => require(['@/page/detail.vue'], resolve)
+const Login = resolve => require(['@/page/login.vue'], resolve)
+const Register = resolve => require(['@/page/register.vue'], resolve)
 
 
 
 export default new Router({
+  // mode: 'history',
   routes: [
     // {
     //   path: '/',
@@ -31,7 +34,22 @@ export default new Router({
     {
       path: '/cart',
       name: '购物车',
-      component: Cart
+      component: Cart,
+      meta: {
+				nav: 'cart'
+			},
+			beforeEnter: (to, from, next) => {
+				if(localStorage.getItem('CHANGE_TOKEN')) {
+					next()
+				} else {
+					next({
+						name: "登录",
+						query: {
+							redirect: "cart"
+						}
+					})
+				}
+			}
     },
     {
       path: '/category',
@@ -41,12 +59,37 @@ export default new Router({
     {
       path: '/user',
       name: '我的',
-      component: User
+      component: User,
+      meta: {
+				nav: 'user'
+			},
+			beforeEnter: (to, from, next) => {
+				if(localStorage.getItem('CHANGE_TOKEN')) {
+					next()
+				} else {
+					next({
+						name: "登录",
+						query: {
+							redirect: "user"
+						}
+					})
+				}
+			}
     },
     {
       path: '/detail',
       name: '详情页',
       component: Detail
+    },
+    {
+      path: '/login',
+      name: '登录',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: '注册',
+      component: Register
     }
   ]
 })
