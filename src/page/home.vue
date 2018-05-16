@@ -58,28 +58,28 @@ export default {
                         'title':'XX手机',
                         'price':100,
                         'intro': '反正就是就是便宜好用吧',
-                        'imgPath':'https://dummyimage.com/200x200/f29afc/fafafa',
+                        'imgPath':'https://dummyimage.com/200x200/9c999c/fff',
                     },
                     {
                         'id':2,
                         'title':'yy手机',
                         'price':200,
                         'intro': '反正就是同上',
-                        'imgPath':'https://dummyimage.com/200x200/f29afc/fafafa',
+                        'imgPath':'https://dummyimage.com/200x200/9c999c/fff',
                     },
                     {
                         'id':3,
                         'title':'zz手机',
                         'price':300,
                         'intro': '同上的同上你懂得',
-                        'imgPath':'https://dummyimage.com/200x200/f29afc/fafafa',
+                        'imgPath':'https://dummyimage.com/200x200/9c999c/fff',
                     },
                     {
                         'id':4,
                         'title':'zz手机',
                         'price':300,
                         'intro': '同上的同上你懂得',
-                        'imgPath':'https://dummyimage.com/200x200/f29afc/fafafa',
+                        'imgPath':'https://dummyimage.com/200x200/9c999c/fff',
                     }
                 ],
                 hotsection2:[
