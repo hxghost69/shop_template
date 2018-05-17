@@ -11,6 +11,7 @@ Vue.use(Router)
 const Home = resolve => require(['@/page/home.vue'], resolve)
 const Cart = resolve => require(['@/page/cart.vue'], resolve)
 const Category = resolve => require(['@/page/category.vue'], resolve)
+const CategoryMain = resolve => require(['@/components/category/main.vue'], resolve)
 const User = resolve => require(['@/page/user.vue'], resolve)
 const Detail = resolve => require(['@/page/detail.vue'], resolve)
 const Login = resolve => require(['@/page/login.vue'], resolve)
@@ -54,7 +55,11 @@ export default new Router({
     {
       path: '/category',
       name: '分类',
-      component: Category
+      component: Category,
+      children: [{
+        path: '/category/:type',
+        component:CategoryMain
+      }]
     },
     {
       path: '/user',

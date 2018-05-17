@@ -10,7 +10,7 @@
                     </label>
                 </div>
                 <div class="something-middle">
-                    <img src="">
+                    <img src="http://dummyimage.com/400x400/ffcc33/FFF.png">
                 </div>
                 <div class="something-right">
                     <p>小米6 全网通 6GB+128GB 陶瓷尊享版 移动联通电信4G手机 </p>
@@ -23,9 +23,34 @@
                             <a class="input-add">+</a>
                         </div>
                     </div>
-                    <div class="something-right-bottom">
+                    <a class="something-right-bottom">
                         删除
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="something-left">
+                    <label class="true">
+                    <input type="checkbox">
+                    </label>
+                </div>
+                <div class="something-middle">
+                    <img src="http://dummyimage.com/400x400/ffcc33/FFF.png">
+                </div>
+                <div class="something-right">
+                    <p>小米6 全网通 6GB+128GB 陶瓷尊享版 移动联通电信4G手机 </p>
+                    <p style="color:rgb(199, 108, 28)">土豪金-16G</p>
+                    <p>售价：2500元</p>
+                    <div class="select-self">
+                        <div class="select-self-area">
+                            <a class="input-sub">-</a> 
+                            <span class="select-ipt">2</span> 
+                            <a class="input-add">+</a>
+                        </div>
                     </div>
+                    <a class="something-right-bottom">
+                        删除
+                    </a>
                 </div>
             </li>
         </ul>
@@ -40,14 +65,16 @@
 }
 .wrap {
     width: 100%;
+    background-color:#fff;
     .something {
         width: 100%;
         > li {
             display: flex;
+            padding:10px 15px;
+            border-bottom:1px solid #e2e0e0;
             .something-left {
-                -ms-flex: 2;
-                -webkit-box-flex: 2;
-                flex: 2;
+                flex: 1;
+                padding-top: 10%;
                 label {
                     float: left;
                     // background: url("../../assets/car/images/t.svg") no-repeat center center/50% 50%;
@@ -60,8 +87,6 @@
 
             }
             .something-middle {
-                -ms-flex: 3;
-                -webkit-box-flex: 3;
                 flex: 3;
                 height: 26vw;
                 padding-left: 2vw;
@@ -74,9 +99,7 @@
                 }
             }
             .something-right {
-                -ms-flex: 7;
-                -webkit-box-flex: 7;
-                flex: 7;
+                flex: 6;
                 height: 100%;
                 display: -ms-flex;
                 display: -webkit-box;
@@ -93,22 +116,23 @@
                 -webkit-box-sizing: border-box;
                 box-sizing: border-box;
                 .select-self-area {
-                    width: auto;
-                    background: #f0f0f0;
+                    width: 100%;
                     border-radius: 3px;
-                    min-width: 50px;
-                    max-width: 240px;
                     height: 30px;
                     line-height: 30px;
+                    display:flex;
+                    justify-content:space-between;
                     .select-ipt {
                         display: inline-block;
                         padding: 0 3px;
                         width: 30px;
                         min-width: 30px;
+                        vertical-align: top;
                         text-align: center;
                     }
                 }   
                 .input-sub, .input-add {
+                    background: #f0f0f0;
                     min-width: 40px;
                     height: 100%;
                     border: 0;
@@ -120,50 +144,21 @@
                     background: #f0f0f0;
                 }             
                 p {
+                    color: #666;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     display: -webkit-box;
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
+                    line-height:25px;
                 }
                 p:last-of-type {
                     color: rgb(168, 168, 168);
                 }
                 .something-right-bottom {
-
-                    > div {
-                        display: -ms-flex;
-                        display: -webkit-box;
-                        display: -ms-flexbox;
-                        display: flex;
-                        -webkit-box-align: center;
-                        -ms-flex-align: center;
-                        align-items: center;
-                        input {
-                            width: 6vw;
-                            text-align: center;
-                        }
-
-                        span {
-                            height: 7vw;
-                            line-height: 7vw;
-                            width: 8vw;
-                            display: inline-block;
-                            border: 0.2vw solid #f1f1f1;
-                            border-radius: 1vw;
-                            text-align: center;
-                            font-size: 20px;
-                            cursor: pointer;
-                        }
-                    }
-                    > span {
-                        position: absolute;
-                        right: 0;
-                        bottom: 0;
-                        width: 13vw;
-                        height: 13vw;
-                        // background: url("../../assets/car/images/laji.svg") no-repeat center/50%;
-                    }
+                    display:inline-block;
+                    text-align:right;
+                    padding:15px 0;
                 }
             }
         }
@@ -178,8 +173,8 @@
 }
 </style>
 <script>
-    import footer from '../components/footer';
-    import header from '../components/header';
+    import footer from '../components/common/footer';
+    import header from '../components/common/header';
         export default {
             components: {
             'm-footer':footer,

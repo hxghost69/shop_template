@@ -12,7 +12,7 @@
   </div>
 </template>
 <script>
-import header from '../components/header';
+import header from '../components/common/header';
 import { Toast } from 'mint-ui'
 export default {
   components: {

@@ -16,12 +16,12 @@
 </style>
 
 <script>
-import footer from '../components/footer';
-import search from '../components/search';
-import header from '../components/header';
-import banner from '../components/banner';
-import goodsSection1 from '../components/goodsSection1';
-import goodsSection2 from '../components/goodsSection2';
+import footer from '../components/common/footer';
+import search from '../components/common/search';
+import header from '../components/common/header';
+import banner from '../components/common/banner';
+import goodsSection1 from '../components/home/goodsSection1';
+import goodsSection2 from '../components/home/goodsSection2';
 export default {
     components: {
         'm-header':header,

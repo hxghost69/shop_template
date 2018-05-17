@@ -106,8 +106,8 @@
 </style>
 
 <script>
-    import header from '../components/header';
-    import footer from '../components/footer';
+    import header from '../components/common/header';
+    import footer from '../components/common/footer';
         export default {
             components: {
                 'm-footer':footer,
