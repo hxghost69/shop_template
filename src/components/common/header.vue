@@ -1,8 +1,8 @@
 <template>
     <mt-header fixed :title="htitle">
-    <!-- <div slot="left">
+    <div slot="left" v-show="!($route.meta.nav =='home' || $route.meta.nav=='category' || $route.meta.nav=='cart' || $route.meta.nav=='user')" @click="$router.go(-1)">
         <mt-button  icon="back">返回</mt-button>
-    </div> -->
+    </div>
     <mt-button  slot="right">
       <router-link v-show="flag" :to="{'name':'登录'}">登录</router-link>
       <router-link v-show="flag" :to="{'name':'注册'}">注册</router-link>
@@ -14,10 +14,11 @@
     props:['htitle'],
     data(){
       return{
-        flag:true
+        flag:true,
+        flag2:false
       }
     },
-    mounted:function(){
+    mounted(){
         this.$nextTick(function () {
           this.isshow();
         });

@@ -6,7 +6,7 @@
             <p>13725845585 <em>未认证</em></p>
         </router-link>
         <div class="main">
-            <mt-cell title="我的订单" href="//github.com" is-link value="查看全部"></mt-cell>
+            <mt-cell title="我的订单"  is-link value="查看全部" data-text='0' :to="{ name: '我的订单'}"></mt-cell>
             <section class="my-pay">
                 <router-link :to="{ name: ''}">
                     <img src="https://dummyimage.com/25x25/9c9a9c/fff" alt="待付款" />
@@ -34,12 +34,12 @@
                     <!-- <mt-badge  class="badge" type="error">1</mt-badge> -->
                 </router-link>
             </section>
-            <mt-cell title="优惠券" href="//github.com" is-link></mt-cell>
-            <mt-cell title="地址管理" href="//github.com" is-link></mt-cell>
-            <mt-cell title="个人资料" href="//github.com" is-link></mt-cell>
-            <mt-cell title="系统设置" href="//github.com" is-link></mt-cell>
-            <mt-cell title="帮助中心" href="//github.com" is-link></mt-cell>
-            <mt-cell title="客服热线" href="//github.com" is-link></mt-cell>
+            <mt-cell title="优惠券" :to="{ name: ''}" is-link></mt-cell>
+            <mt-cell title="地址管理" :to="{ name: ''}" is-link></mt-cell>
+            <mt-cell title="个人资料" :to="{ name: ''}" is-link></mt-cell>
+            <mt-cell title="系统设置" :to="{ name: ''}" is-link></mt-cell>
+            <mt-cell title="帮助中心" :to="{ name: ''}" is-link></mt-cell>
+            <mt-cell title="客服热线" :to="{ name: ''}" is-link></mt-cell>
         </div>
         <m-footer></m-footer>
     </div>
@@ -116,6 +116,11 @@
             data(){
                 return{
                     title:"我的"
+                }
+            },
+            methods:{
+                gourl:function(url){
+                    this.$router.push({ name: url })
                 }
             }
         }

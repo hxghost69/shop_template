@@ -9,24 +9,26 @@
                     <input type="checkbox">
                     </label>
                 </div>
-                <div class="something-middle">
-                    <img src="http://dummyimage.com/400x400/ffcc33/FFF.png">
-                </div>
-                <div class="something-right">
-                    <p>小米6 全网通 6GB+128GB 陶瓷尊享版 移动联通电信4G手机 </p>
-                    <p style="color:rgb(199, 108, 28)">土豪金-16G</p>
-                    <p>售价：2500元</p>
-                    <div class="select-self">
-                        <div class="select-self-area">
-                            <a class="input-sub">-</a> 
-                            <span class="select-ipt">2</span> 
-                            <a class="input-add">+</a>
-                        </div>
+                <router-link class="rwrap" :to="{name:'详情页'}">
+                    <div class="something-middle">
+                        <img src="http://dummyimage.com/400x400/ffcc33/FFF.png">
                     </div>
-                    <a class="something-right-bottom">
-                        删除
-                    </a>
-                </div>
+                    <div class="something-right">
+                        <p>小米6 全网通 6GB+128GB 陶瓷尊享版 移动联通电信4G手机 </p>
+                        <p style="color:rgb(199, 108, 28)">土豪金-16G</p>
+                        <p>售价：2500元</p>
+                        <div class="select-self">
+                            <div class="select-self-area">
+                                <a class="input-sub">-</a> 
+                                <span class="select-ipt">2</span> 
+                                <a class="input-add">+</a>
+                            </div>
+                        </div>
+                        <a class="something-right-bottom">
+                            删除
+                        </a>
+                    </div>
+                </router-link>
             </li>
             <li>
                 <div class="something-left">
@@ -34,26 +36,44 @@
                     <input type="checkbox">
                     </label>
                 </div>
-                <div class="something-middle">
-                    <img src="http://dummyimage.com/400x400/ffcc33/FFF.png">
-                </div>
-                <div class="something-right">
-                    <p>小米6 全网通 6GB+128GB 陶瓷尊享版 移动联通电信4G手机 </p>
-                    <p style="color:rgb(199, 108, 28)">土豪金-16G</p>
-                    <p>售价：2500元</p>
-                    <div class="select-self">
-                        <div class="select-self-area">
-                            <a class="input-sub">-</a> 
-                            <span class="select-ipt">2</span> 
-                            <a class="input-add">+</a>
-                        </div>
+                <router-link class="rwrap" :to="{name:'详情页'}">
+                    <div class="something-middle">
+                        <img src="http://dummyimage.com/400x400/ffcc33/FFF.png">
                     </div>
-                    <a class="something-right-bottom">
-                        删除
-                    </a>
-                </div>
+                    <div class="something-right">
+                        <p>小米6 全网通 6GB+128GB 陶瓷尊享版 移动联通电信4G手机 </p>
+                        <p style="color:rgb(199, 108, 28)">土豪金-16G</p>
+                        <p>售价：2500元</p>
+                        <div class="select-self">
+                            <div class="select-self-area">
+                                <a class="input-sub">-</a> 
+                                <span class="select-ipt">2</span> 
+                                <a class="input-add">+</a>
+                            </div>
+                        </div>
+                        <a class="something-right-bottom">
+                            删除
+                        </a>
+                    </div>
+                </router-link>
             </li>
         </ul>
+        <div class="cartfooter">
+            <div class="Total">
+                <label class="true">
+                    <input type="checkbox">
+                </label>
+                <span>合计<em>￥0</em></span>
+            </div> 
+            <div class="_box">
+                <div class="Settlement">
+                    <a @click="gourl('支付页')">结算</a>
+                </div> 
+                <div class="Settlementtwo">
+                    <a href="#/" class="router-link-active">继续购物</a>
+                </div>
+            </div>
+        </div>
     </div>
     <m-footer></m-footer>
   </div>
@@ -86,8 +106,13 @@
                 }
 
             }
+            .rwrap{
+                display:inline-block;
+                flex:9;
+                display:flex;
+            }
             .something-middle {
-                flex: 3;
+                flex: 4;
                 height: 26vw;
                 padding-left: 2vw;
                 -webkit-box-sizing: border-box;
@@ -99,7 +124,7 @@
                 }
             }
             .something-right {
-                flex: 6;
+                flex: 8;
                 height: 100%;
                 display: -ms-flex;
                 display: -webkit-box;
@@ -163,6 +188,64 @@
             }
         }
     }
+    .cartfooter{
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        background: #fff;
+        bottom: 55px;
+        display: block;
+        border-top: 1px solid #f4f4f4;
+        .Total {
+            float: left;
+            width: calc(37% - 20px);
+            text-align: center;
+            line-height: 50px;
+            font-size: 12px;
+            padding:0 10px;
+            >*{
+                float:left;
+            }
+            label{
+                display:inline-block;
+                vertical-align: middle;
+                width:50%;
+            }
+            span{
+                display:inline-block;
+                width:50%;
+                em{
+                    font-style:normal;
+                    color: rgb(227, 33, 30);                   
+                }
+                font-size: 14px; 
+                color:#999;                
+            }
+        }
+        ._box {
+            width: 63%;
+            height: 100%;
+            float: left;
+            .Settlement, .Settlementtwo {
+                width: 50%;
+                height: 100%;
+                float: right;
+                a{
+                    color: #fff;
+                    text-align: center;
+                    line-height: 50px;
+                    display: block;
+                    font-size: 12px;
+                }
+            }
+            .Settlement {
+                background: #ff9800;
+            }
+            .Settlementtwo {
+                background: #e3211e;
+            }
+        }
+    }
     label,
     span {
         &:active {
@@ -183,6 +266,16 @@
             data(){
                 return{
                     title:'购物车'
+                }
+            },
+            mounted:function(){
+                this.$nextTick(function () {
+
+                })  
+            },
+            methods:{
+                gourl:function(url){
+                    this.$router.push({ name: url })
                 }
             }
         }

@@ -8,9 +8,9 @@
     </div>      
     <div class="section1-list">
       <ul>
-        <li v-for="k in section1" :key="k.id">
+        <li  v-for="k in section1" :key="k.id">
           <router-link :to="{name:'详情页'}">
-            <img v-lazy="k.imgPath">
+            <img v-lazy="k.imgPath" src="https://dummyimage.com/200x200/e8e8e8/fff&text=waiting...">
           </router-link>
           <h2 class="section1-list-title ac">
             {{k.title}}

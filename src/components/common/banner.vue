@@ -14,7 +14,7 @@
             <img src="https://dummyimage.com/800x400/84cc06/fafafa" alt="">
         </mt-swipe-item>
     </mt-swipe> -->
-    <mt-swipe :auto="0" v-if='bannerData'>
+    <mt-swipe :auto="3000" v-if='bannerData'>
         <mt-swipe-item v-for="k in bannerData" :key="k.id">
             <router-link :to="{ name: '首页'}">
             <img :src="k.imgPath">

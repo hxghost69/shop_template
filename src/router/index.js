@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/vuex/store.js' 
 // import HelloWorld from '@/components/HelloWorld'
 // import test from '@/components/test'
 
@@ -16,6 +17,8 @@ const User = resolve => require(['@/page/user.vue'], resolve)
 const Detail = resolve => require(['@/page/detail.vue'], resolve)
 const Login = resolve => require(['@/page/login.vue'], resolve)
 const Register = resolve => require(['@/page/register.vue'], resolve)
+const Pay = resolve => require(['@/page/pay.vue'], resolve)
+const Order = resolve => require(['@/page/order.vue'], resolve)
 
 
 
@@ -28,9 +31,12 @@ export default new Router({
     //   component: HelloWorld
     // },
     {
-      path: '/',
+      path: '/home',
       name: '首页',
-      component: Home
+      component: Home,
+      meta: {
+				nav: 'home'
+			}
     },
     {
       path: '/cart',
@@ -40,7 +46,8 @@ export default new Router({
 				nav: 'cart'
 			},
 			beforeEnter: (to, from, next) => {
-				if(localStorage.getItem('CHANGE_TOKEN')) {
+        store.state.login.token
+				if(store.state.login.token) {
 					next()
 				} else {
 					next({
@@ -53,9 +60,17 @@ export default new Router({
 			}
     },
     {
+      path: '/car/pay',
+      name: '支付页',
+      component: Pay
+    },
+    {
       path: '/category',
       name: '分类',
       component: Category,
+      meta: {
+				nav: 'home'
+			},
       children: [{
         path: '/category/:type',
         component:CategoryMain
@@ -69,7 +84,7 @@ export default new Router({
 				nav: 'user'
 			},
 			beforeEnter: (to, from, next) => {
-				if(localStorage.getItem('CHANGE_TOKEN')) {
+				if(store.state.login.token) {
 					next()
 				} else {
 					next({
@@ -81,6 +96,11 @@ export default new Router({
 				}
 			}
     },
+    {
+      path: '/order',
+      name: '我的订单',
+      component: Order
+    },    
     {
       path: '/detail',
       name: '详情页',
