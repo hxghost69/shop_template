@@ -108,7 +108,15 @@ export default {
     },
     methods:{
         init:function(){
-            
+            this.$api({
+            method: 'post',
+            url: '/index'
+            }).then((response) => {
+                console.log(response);
+            console.log(response.data);
+            }).catch(function(error) {
+            console.log(error);
+            })
         }
     }
 }

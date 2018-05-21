@@ -36,7 +36,7 @@ export default new Router({
       component: Home,
       meta: {
 				nav: 'home'
-			}
+      }
     },
     {
       path: '/cart',

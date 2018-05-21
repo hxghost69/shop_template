@@ -7,11 +7,15 @@ import axios from 'axios'
 import Vuex from 'vuex'
 import store from './vuex/store.js'   //vuex
 import Mint from 'mint-ui';
+import api from '@/api/api.js' 
 import 'mint-ui/lib/style.css'
 import './assets/css/base.css'
 
 Vue.use(Vuex);
 Vue.use(Mint);
+Vue.prototype.$api = api;
+// 引入mockjs
+require('./mock.js')
 // Vue.use(Mint, {
 //   lazyload: {
 //     preLoad: 1.3,
