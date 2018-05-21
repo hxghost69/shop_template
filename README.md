@@ -1,4 +1,4 @@
--------------------------进行中
+进行中
 使用的库：
 vue-cli (vue+webpack脚手架)
 vue-router(路由跳转)
@@ -14,7 +14,10 @@ CSS3
 sass
 Flex(弹性布局)
 mint-ui
-因为用mint-ui。所以都是用px的。
 数据请求：
 Mock(模拟后台数据)
 Axios(请求数据)
+
+纯粹一个练手项目
+实现一个比较完整的vue商城模板项目。
+主要就是熟悉搭建一个vue-cli完整的项目结构，vuex，vue-router。
