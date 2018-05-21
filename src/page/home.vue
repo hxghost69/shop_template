@@ -34,7 +34,7 @@ export default {
     data(){
         return{
             msg:'abc',
-            titleMsg:'商城主页',
+            titleMsg:'商城主页1',
             datas:{
                 count:3,
                 bannerlist:[
