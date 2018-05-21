@@ -155,7 +155,7 @@ import header from '../components/common/header';
     //模板编译/挂载之后
     mounted(){
        //对应还有个beforeMount
-       this.nextTick(function () {
+       this.$nextTick(function () {
        })
     },
     //组件更新后

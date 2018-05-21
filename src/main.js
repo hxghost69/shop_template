@@ -12,7 +12,19 @@ import './assets/css/base.css'
 
 Vue.use(Vuex);
 Vue.use(Mint);
+// Vue.use(Mint, {
+//   lazyload: {
+//     preLoad: 1.3,
+//     error: '',
+//     loading: require('./assets/images/info.png'),
+//     attempt: 1,
+//     filter: {
+//       webp(listener, options) {
 
+//       },
+//     },
+//   },
+// });
 Vue.config.productionTip = false
 
 

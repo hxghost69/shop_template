@@ -15,7 +15,6 @@ export default {
   },
   computed:{
     showLoading(){
-      console.log(this.$store.state.detail.showLoading);
       return this.$store.state.detail.showLoading
        //return ...mapState(['showLoading'])
 

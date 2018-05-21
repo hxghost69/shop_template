@@ -46,8 +46,7 @@
                 <router-link :to="{name:'购物车'}">购物车</router-link>
             </div>         
         </div>
-        <m-model ref="confirm" type="confirm" isHeadShow="true" @confirmEventf="confirmBtnEventc" confirmEventt="confirmBtnEvent" >
-            <!-- @confirmEvent="confirmBtnEvent(num)" -->
+        <m-model ref="confirm" type="confirm" @confirmEvent="confirmBtnEvent">
             <div slot="confirm" class="confirm">
                 <h5>您选择的产品</h5>
                 <h6>iPhoneX 256G 土豪金</h6>
@@ -56,6 +55,61 @@
         </m-model>
   </div>
 </template>
+<script>
+    import footer from '../components/common/footer';
+    import header from '../components/common/header';
+    import banner from '../components/common/banner';
+    import model from '../components/common/model';
+    import { Toast } from 'mint-ui';
+        export default {
+            components: {
+            'm-footer':footer,
+            'm-header':header,
+            'm-banner':banner,
+            'm-model': model
+            },
+            data(){
+                return{
+                    title:'商品详情',
+                    tabState:true,
+                    headtitle:true,
+                    datas:{
+                        count:3,
+                        bannerlist:[
+                        {
+                            id:1,
+                            imgPath:'https://dummyimage.com/800x400/ffbe19/fafafa'
+                        },
+                        {
+                            id:2,
+                            imgPath:'https://dummyimage.com/800x400/ffae63/fafafa'
+                        },
+                        {
+                            id:3,
+                            imgPath:'https://dummyimage.com/800x400/84cc06/fafafa'
+                        },
+                        ]
+                    }
+                }
+            },
+            methods:{
+                tabEvent1 () {
+                    this.tabState = true;
+                },
+                tabEvent2 () {
+                    this.tabState = false;
+                },
+                butEvent () {
+                this.$refs.confirm.modelOpen();
+                },
+                confirmBtnEvent(num){
+                    if(num){
+                         Toast({message:'已经加入购物车了',duration:1500}); 
+                    }
+                }
+            }
+        }
+</script>
 <style lang="scss" scoped>
 .detail{
     padding-top:40px;
@@ -200,59 +254,3 @@
     }
 }
 </style>
-<script>
-    import footer from '../components/common/footer';
-    import header from '../components/common/header';
-    import banner from '../components/common/banner';
-    import model from '../components/common/model';
-    import { Toast } from 'mint-ui';
-        export default {
-            components: {
-            'm-footer':footer,
-            'm-header':header,
-            'm-banner':banner,
-            'm-model': model
-            },
-            data(){
-                return{
-                    title:'商品详情',
-                    tabState:true,
-                    headtitle:true,
-                    datas:{
-                        count:3,
-                        bannerlist:[
-                        {
-                            id:1,
-                            imgPath:'https://dummyimage.com/800x400/ffbe19/fafafa'
-                        },
-                        {
-                            id:2,
-                            imgPath:'https://dummyimage.com/800x400/ffae63/fafafa'
-                        },
-                        {
-                            id:3,
-                            imgPath:'https://dummyimage.com/800x400/84cc06/fafafa'
-                        },
-                        ]
-                    }
-                }
-            },
-            methods:{
-                tabEvent1 () {
-                    this.tabState = true;
-                },
-                tabEvent2 () {
-                    this.tabState = false;
-                },
-                butEvent () {
-                this.$refs.confirm.modelOpen();
-                },
-                confirmBtnEvent(){
-                    Toast('已经加入购物车了');                
-                },
-                confirmBtnEventc(){
-
-                }
-            }
-        }
-</script>

@@ -52,12 +52,11 @@
                                     <slot name="confirm"></slot>
                                 </div>
                                 <div class="bottom">
-                                    <button @click="confirm_sure" class="radius-left">确 认</button>
-                                    <button @click="confirm_cancel" class="radius-right">取 消</button>
+                                    <button  @click="confirm_BtnEvent(1)" class="radius-left">确 认</button>
+                                    <button  @click="confirm_BtnEvent(0)" class="radius-right">取 消</button>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -96,14 +95,6 @@
                 //这个方法，应该调用父级页面的方法。因为弹窗公共，不同的弹窗确认逻辑不同。
                 this.modelClose();
                 this.$emit('confirmEvent', num);
-            },
-            confirm_sure:function(){
-                this.modelClose();
-                this.$emit('confirmEventt');
-            },
-            confirm_cancel:function(){
-                this.modelClose();    
-                this.$emit('confirmEventf');  
             }
         }
     };
