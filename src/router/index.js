@@ -31,7 +31,7 @@ export default new Router({
     //   component: HelloWorld
     // },
     {
-      path: '/home',
+      path: '/',
       name: '首页',
       component: Home,
       meta: {
@@ -45,19 +45,18 @@ export default new Router({
       meta: {
 				nav: 'cart'
 			},
-			beforeEnter: (to, from, next) => {
-        store.state.login.token
-				if(store.state.login.token) {
-					next()
-				} else {
-					next({
-						name: "登录",
-						query: {
-							redirect: "cart"
-						}
-					})
-				}
-			}
+			// beforeEnter: (to, from, next) => {
+			// 	if(localStorage.getItem('userId')) {
+			// 		next()
+			// 	} else {
+			// 		next({
+			// 			name: "登录",
+			// 			query: {
+			// 				redirect: "cart"
+			// 			}
+			// 		})
+			// 	}
+			// }
     },
     {
       path: '/car/pay',
@@ -83,18 +82,18 @@ export default new Router({
       meta: {
 				nav: 'user'
 			},
-			beforeEnter: (to, from, next) => {
-				if(store.state.login.token) {
-					next()
-				} else {
-					next({
-						name: "登录",
-						query: {
-							redirect: "user"
-						}
-					})
-				}
-			}
+			// beforeEnter: (to, from, next) => {
+			// 	if(localStorage.getItem('userId')) {
+			// 		next()
+			// 	} else {
+			// 		next({
+			// 			name: "登录",
+			// 			query: {
+			// 				redirect: "user"
+			// 			}
+			// 		})
+			// 	}
+			// }
     },
     {
       path: '/order',
@@ -102,7 +101,7 @@ export default new Router({
       component: Order
     },    
     {
-      path: '/detail',
+      path: '/detail/:id',
       name: '详情页',
       component: Detail
     },

@@ -1,6 +1,6 @@
 <template>
     <mt-header fixed :title="htitle">
-    <div slot="left" v-show="!($route.meta.nav =='home' || $route.meta.nav=='category' || $route.meta.nav=='cart' || $route.meta.nav=='user')" @click="$router.go(-1)">
+    <div slot="left" v-show="!($route.meta.nav =='home' || $route.meta.nav=='category' || $route.meta.nav=='cart' || $route.meta.nav=='user')" @click="goback">
         <mt-button  icon="back">返回</mt-button>
     </div>
     <mt-button  slot="right">
@@ -30,10 +30,16 @@
         if(window.location.hash.indexOf('login')!=-1){
           this.flag=false;
         }else{
-          if(this.$store.state.login.token){
+          // if(this.$store.state.login.token){
+          if(localStorage.getItem('userId')){
             this.flag=false;
           }
         }
+      },
+      goback:function(){
+        window.history.length > 1
+        ? this.$router.go(-1)
+        : this.$router.push('/');
       }
     }
   }

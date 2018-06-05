@@ -8,12 +8,12 @@
     </div>      
     <ul class="section2-list">
       <li v-for="k in section2">
-        <router-link :to="{name:'详情页'}" :key="k.id">
-          <img v-lazy="k.imgPath">
-          <p>{{k.intro}}</p>
+        <router-link :to="{name:'详情页',params:{ id: k.productId }}" :key="k._id">
+          <img v-lazy="'static/'+k.productImage">
+          <p>测试测试测试</p>
         </router-link>
-        <h3>{{k.title}}</h3>
-        <p>￥{{k.price}}</p>
+        <h3>{{k.productName}}</h3>
+        <p>￥{{k.salePrice}}</p>
       </li>
     </ul>
   </section>

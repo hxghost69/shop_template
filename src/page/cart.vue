@@ -3,51 +3,24 @@
     <m-header :htitle="title"></m-header>
     <div class="wrap">
         <ul class="something">
-            <li>
+            <li v-for="item in cartList" :key="item.id">
                 <div class="something-left">
                     <label class="true">
                     <input type="checkbox">
                     </label>
                 </div>
-                <router-link class="rwrap" :to="{name:'详情页'}">
+                <router-link class="rwrap" :to="{name:'详情页',params:{ id: item.productId }}">
                     <div class="something-middle">
-                        <img src="http://dummyimage.com/400x400/ffcc33/FFF.png">
+                        <img  v-lazy="'/static/'+item.productImage">
                     </div>
                     <div class="something-right">
-                        <p>小米6 全网通 6GB+128GB 陶瓷尊享版 移动联通电信4G手机 </p>
+                        <p>{{item.productName}}</p>
                         <p style="color:rgb(199, 108, 28)">土豪金-16G</p>
-                        <p>售价：2500元</p>
+                        <p>售价：￥{{item.salePrice}}</p>
                         <div class="select-self">
                             <div class="select-self-area">
                                 <a class="input-sub">-</a> 
-                                <span class="select-ipt">2</span> 
-                                <a class="input-add">+</a>
-                            </div>
-                        </div>
-                        <a class="something-right-bottom">
-                            删除
-                        </a>
-                    </div>
-                </router-link>
-            </li>
-            <li>
-                <div class="something-left">
-                    <label class="true">
-                    <input type="checkbox">
-                    </label>
-                </div>
-                <router-link class="rwrap" :to="{name:'详情页'}">
-                    <div class="something-middle">
-                        <img src="http://dummyimage.com/400x400/ffcc33/FFF.png">
-                    </div>
-                    <div class="something-right">
-                        <p>小米6 全网通 6GB+128GB 陶瓷尊享版 移动联通电信4G手机 </p>
-                        <p style="color:rgb(199, 108, 28)">土豪金-16G</p>
-                        <p>售价：2500元</p>
-                        <div class="select-self">
-                            <div class="select-self-area">
-                                <a class="input-sub">-</a> 
-                                <span class="select-ipt">2</span> 
+                                <span class="select-ipt">{{item.productNum}}</span> 
                                 <a class="input-add">+</a>
                             </div>
                         </div>
@@ -258,6 +231,7 @@
 <script>
     import footer from '../components/common/footer';
     import header from '../components/common/header';
+    import axios from 'axios'
         export default {
             components: {
             'm-footer':footer,
@@ -265,15 +239,22 @@
             },
             data(){
                 return{
-                    title:'购物车'
+                    title:'购物车',
+                    cartList:[]
                 }
             },
             mounted:function(){
                 this.$nextTick(function () {
-
+                    this.init();
                 })  
             },
             methods:{
+                init(){
+                    axios.get("/api/users/cartList").then((response)=>{
+                        let res = response.data;
+                        this.cartList = res.result;
+                    });
+                },
                 gourl:function(url){
                     this.$router.push({ name: url })
                 }

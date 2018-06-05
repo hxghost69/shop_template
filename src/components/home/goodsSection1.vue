@@ -8,18 +8,18 @@
     </div>      
     <div class="section1-list">
       <ul>
-        <li  v-for="k in section1" :key="k.id">
-          <router-link :to="{name:'详情页'}">
-            <img v-lazy="k.imgPath" src="https://dummyimage.com/200x200/e8e8e8/fff&text=waiting...">
+        <li  v-for="item in section1" :key="item._id">
+          <router-link :to="{name:'详情页',params:{ id: item.productId }}">
+            <img v-lazy="'static/'+item.productImage"/>
           </router-link>
           <h2 class="section1-list-title ac">
-            {{k.title}}
+            {{item.productName}}
           </h2>
           <p class="section1-list-intro">
-            {{k.intro}}
+            反正就是好
           </p>
           <p class="section1-list-price">
-            ￥{{k.price}}
+            ￥{{item.salePrice}}
           </p>
         </li>
       </ul>
@@ -29,8 +29,12 @@
 
 <script>
   export default {
-    props:['section1']
+    props:['section1'],
+    mounted:function(){
+        this.$nextTick(function () {
 
+        })
+    }
   }
 </script>
 
@@ -68,14 +72,15 @@
       display: -ms-flexbox;
       display: flex;
       padding: 10px;
-       width: 280%;
       li {
         margin-right: 10px;
+        min-width:112px;
         // max-width:150px;
         a,
         img {
+          height: auto;
+          max-width: 100%; 
           display: block;
-          width: 100%;
         }
 
         h2,

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import store from '@/vuex/store.js'
 import router from '../router'
+import { Indicator } from 'mint-ui';
 
 const api = axios.create();
 api.defaults.baseURL = 'http://api.com';
@@ -16,7 +17,6 @@ api.interceptors.request.use(function (config) {
     if(store.state.login.token) {
       config.headers.Authorization = `token ${store.state.login.token}`;
     }
-
     return config;
 
   }, function (error) {
@@ -24,7 +24,6 @@ api.interceptors.request.use(function (config) {
     alert('网络错误,请稍后再试');
 
     store.commit('SET_LOADING',false);
-
     return Promise.reject(error);
   });
 
@@ -35,13 +34,11 @@ api.interceptors.response.use(function (response) {
     setTimeout(()=>{
       store.commit('SET_LOADING',false);
     },300)
-
     return response;
 
   }, function (error) {
     // 对响应错误做点什么
     store.commit('SET_LOADING',false);
-
     if(errore.response) {
 
       if(error.response.status== 401) {

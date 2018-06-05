@@ -6,7 +6,7 @@
             <section class="chose">
                 <div class="chose-view">
                     <h1 class="chose-view-title">
-                        iPhoneX~~
+                        {{detailList.productName}}
                         <span>(已选 土豪金-256G)</span>
                     </h1>
                     <span>8888元</span>
@@ -61,6 +61,7 @@
     import banner from '../components/common/banner';
     import model from '../components/common/model';
     import { Toast } from 'mint-ui';
+    import axios from 'axios'
         export default {
             components: {
             'm-footer':footer,
@@ -73,6 +74,7 @@
                     title:'商品详情',
                     tabState:true,
                     headtitle:true,
+                    detailList:[],
                     datas:{
                         count:3,
                         bannerlist:[
@@ -92,7 +94,27 @@
                     }
                 }
             },
+            mounted(){
+                this.$nextTick(function(){
+                    this.init();
+                })
+            },
             methods:{
+                init(){
+                    var param={
+                        id:this.$route.params.id
+                    };
+                    axios.get("/api/goods/detail",{
+                        params:param
+                    }).then((response)=>{
+                        var res = response.data;
+                        if(res.status=="0"){
+                            this.detailList = res.result;
+                        }else{
+                            this.detailList = [];
+                        }               
+                    })                    
+                },
                 tabEvent1 () {
                     this.tabState = true;
                 },
@@ -104,7 +126,14 @@
                 },
                 confirmBtnEvent(num){
                     if(num){
-                         Toast({message:'已经加入购物车了',duration:1500}); 
+                        axios.post("/api/goods/addCart",{
+                            productId:this.$route.params.id
+                            }).then((res)=>{
+                                var res = res.data;
+                                if(res.status==0){
+                                    Toast({message:'已经加入购物车了',duration:1500}); 
+                                }
+                        });                                                 
                     }
                 }
             }
